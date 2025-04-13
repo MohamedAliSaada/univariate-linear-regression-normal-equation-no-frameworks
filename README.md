@@ -119,12 +119,6 @@ It then shows a scatter plot of the data and the fitted regression line.
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License**. Feel free to use, modify, and share it.
-
----
-
 ## 🙌 Author
 
 Built with ❤️ using NumPy and Matplotlib.
