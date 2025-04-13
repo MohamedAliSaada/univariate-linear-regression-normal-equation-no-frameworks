@@ -97,7 +97,7 @@ A **bias term** (also called intercept) allows the regression line to **shift ve
 
 ## 📦 Dependencies
 
-- `numpy`
+- `numpy` 
 - `pandas`
 - `matplotlib`
 
