@@ -113,11 +113,6 @@ pip install -r requirements.txt
 
 Feel free to fork this repository, improve the model (e.g., support multiple features), or add regularization and raise a pull request!
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ---
 
