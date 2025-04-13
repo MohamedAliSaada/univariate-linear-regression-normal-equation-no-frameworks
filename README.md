@@ -1,75 +1,80 @@
-# 🔍 Univariate Linear Regression with Bias Term
+# Univariate Linear Regression with Normal Equation
 
-This project demonstrates a simple **univariate linear regression** using Python, NumPy, and Pandas. The model predicts a continuous target variable (`el_power`) based on a single input feature (`time`) using the **normal equation**. A bias term (intercept) is included in the regression model to improve prediction accuracy.
-
----
-
-## 📁 Project Structure
-
-```
-linear-regression-model/
-│
-├── linear_regression.py       # Main Python script (regression model)
-├── ex_1.csv                   # Input dataset
-├── model.png                  # Visual explanation of bias term
-├── requirements.txt           # Dependencies
-└── README.md                  # Project documentation (this file)
-```
+This project demonstrates a general-purpose implementation of **Univariate Linear Regression using the Normal Equation**, built from scratch with NumPy and Matplotlib.
 
 ---
 
-## 📊 Dataset: `ex_1.csv`
+## 🔍 Overview
 
-The dataset contains two columns:
+Linear Regression is one of the most fundamental machine learning algorithms used to model the relationship between a single input feature and a continuous target.
 
-- `time`: A continuous feature (e.g., timestamp or sequential time unit)
-- `el_power`: The target variable (e.g., electricity consumption or output)
+This project:
 
-All data is **normalized** (zero mean and unit variance) before fitting the model.
-
----
-
-## ⚙️ How the Model Works
-
-The linear regression equation with bias term is:
-
-```
-y = b + w * x
-```
-
-Or in matrix form using the **normal equation**:
-
-```
-w = (Xᵀ X)^(-1) Xᵀ y
-```
-
-Where:
-- `X` is the feature matrix with a bias column
-- `y` is the target vector
-- `w` includes both bias and weight
+- Builds a regression model without using high-level ML libraries
+- Uses normalized data to ensure stable training
+- Computes model parameters using the closed-form Normal Equation
+- Visualizes model predictions with matplotlib
 
 ---
 
-## 📌 Key Features
+## 🧠 Key Concepts
 
-- Automatic normalization of input features
-- Adds a bias term to improve prediction performance
-- Uses the closed-form solution (Normal Equation)
-- Visualizes predicted vs actual data using `matplotlib`
+- **Univariate Regression**: Models the relationship between one feature (`time`) and a target (`el_power`)
+- **Normal Equation**: Computes parameters analytically without iteration
+- **Bias Term (Intercept)**: Included to allow vertical shift of the regression line
+- **Feature Normalization**: Ensures numerical stability and faster convergence
 
 ---
 
-## 🛠️ Setup Instructions
+## 📁 Files Included
 
-1. Clone this repo or download the ZIP.
-2. Make sure `ex_1.csv` is in the same directory.
-3. Install required packages:
+- `linear_regression.py`: Main Python script implementing the model
+- `ex_1.csv`: Dataset containing `time` and `el_power`
+- `bias explination.png`: Matrix representation of the model equation
+- `result.png`: Final plot of predicted vs actual values
+- `requirements.txt`: List of required Python packages
+- `README.md`: This documentation
+
+---
+
+## 📈 Visualizations
+
+### 📌 Model Equation
+
+The model fits a line using the matrix equation:
+
+![Model Equation](bias%20explination.png)
+
+Which expands to:
+
+```
+y = Xw
+```
+
+Where `X` includes a column of ones (for bias) and your feature values, and `w` contains `[b, m]`.
+
+---
+
+### 📌 Prediction vs Actual
+
+This plot shows how well the model fits the data:
+
+![Result](result.png)
+
+The red line represents predicted values, and the blue dots are the actual data points after normalization.
+
+---
+
+## ▶️ How to Run
+
+1. Make sure you have Python installed.
+2. Install the required packages:
 
 ```bash
-pip install -r requirements.txt
+pip install numpy pandas matplotlib
 ```
 
-4. Run the model:
+3. Run the script:
 
 ```bash
 python linear_regression.py
@@ -77,45 +82,50 @@ python linear_regression.py
 
 ---
 
-## 📈 Output
+## 📦 Output
 
-- Prints the final regression equation:
-  ```
-  Model: y = [weight] * x + [bias]
-  ```
-- Displays a scatter plot of actual data and a line plot of predicted values.
+The program prints the learned model equation in the format:
 
----
-
-## 🧠 Bias Term Explanation
-
-A **bias term** (also called intercept) allows the regression line to **shift vertically**, improving model flexibility. Without it, the line is forced to pass through the origin, which may not reflect the true relationship in the data.
-
-![Model Explanation](model.png)
-
----
-
-## 📦 Dependencies
-
-- `numpy` 
-- `pandas`
-- `matplotlib`
-
-Install them using:
-
-```bash
-pip install -r requirements.txt
+```
+Model y = [weight] * x + [bias]
 ```
 
+For example (on sample data):
+
+```
+Model y = 0.987 x + -0.004
+```
+
+It then shows a scatter plot of the data and the fitted regression line.
+
 ---
 
-## 🤝 Contributing
+## 💡 Extras
 
-Feel free to fork this repository, improve the model (e.g., support multiple features), or add regularization and raise a pull request!
-
+- The script automatically normalizes all features
+- Bias is added explicitly in the feature matrix
+- The solution uses the formula:  
+  ```
+  w = (Xᵀ X)⁻¹ Xᵀ y
+  ```
 
 ---
 
-## ✉️ Contact
+## 🧪 Example Use Cases
 
-For questions or feedback, feel free to open an issue or reach out!
+- Forecasting energy consumption
+- Modeling trends over time with a single variable
+- Learning how closed-form linear models work
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. Feel free to use, modify, and share it.
+
+---
+
+## 🙌 Author
+
+Built with ❤️ using NumPy and Matplotlib.
+
